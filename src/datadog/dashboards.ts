@@ -14,18 +14,15 @@ const widgetBasedOnLogs = (widget: v1.Widget): boolean => {
     
     // Look for queries with dataSource === logs
     const requests = (widget.definition as any)['requests']
-    if (requests && Array.isArray(requests)) {
-        const requests = (widget.definition as any)['requests']
-        if (requests && Array.isArray(requests)) {
-            return requests.some(request => {
-                const queries = request.queries
-                if (queries && Array.isArray(queries)) {
-                    return queries.some(query => query.dataSource === 'logs')
-                }
-            })
-        }
-    }
-    return false
+    if (!requests || !Array.isArray(requests))
+        return false
+
+    return requests.some(request => {
+        const queries = request.queries
+        if (!queries || !Array.isArray(queries))
+            return false
+        return queries.some(query => query.dataSource === 'logs')
+    })
 }
 
 const containsWidgetBasedOnLogs = (dashboard: v1.Dashboard) => {
