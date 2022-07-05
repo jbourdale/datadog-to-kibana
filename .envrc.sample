@@ -1,0 +1,4 @@
+export DD_SITE=datadoghq.com
+export DD_API_KEY=XXXXX
+export DD_APP_KEY=XXXXX
+export WHITELISTED_DASHBOARD_IDS="XXXXX,YYYYY,ZZZZZ"
