@@ -61,7 +61,21 @@ export const fetchMonitorsUsingApmServiceWithoutTags = async (): Promise<
     monitorsWithQueryIncludingService.length
   );
 
-  const serviceRg = new RegExp('("|{| )service:[a-z-._0-9]*', "g");
+  const monitorsWithoutServiceTags = monitorsWithQueryIncludingService?.filter(
+    (m) => m.tags?.filter((t) => t.includes("service:")).length === 0
+  );
+
+  console.log(
+    'dtk:datadog:alerts | Monitors having query including "service:" but no service: in tags count : ',
+    monitorsWithoutServiceTags.length
+  );
+
+  console.log(
+    "dtk:datadog:alerts | monitorsWithoutServiceTags : ",
+    monitorsWithoutServiceTags
+  );
+
+  const serviceRg = new RegExp('("|{| |,)service:[a-z-._0-9]*', "g");
   const monitorsAndTheirServices = monitorsWithQueryIncludingService?.reduce(
     (acc, m) => {
       const services = Array.from(
