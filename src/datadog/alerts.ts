@@ -137,3 +137,29 @@ export const fetchMonitorsUsingApmServiceWithoutTags = async (): Promise<
 
   return monitorsWithQueryIncludingService;
 };
+
+export const findLogServiceInMonitors = async (
+  currentName: string
+): Promise<Array<v1.Monitor>> => {
+  const response = await axios.get("https://api.datadoghq.com/api/v1/monitor", {
+    headers: {
+      "Content-Type": "application/json",
+      "DD-API-KEY": process.env.DD_API_KEY || "",
+      "DD-APPLICATION-KEY": process.env.DD_APP_KEY || "",
+    },
+  });
+  console.log("dtk:datadog:alerts | Done");
+
+  const monitors = response.data as Array<v1.Monitor>;
+  console.log("dtk:datadog:alerts | Monitors count found : ", monitors.length);
+
+  const monitorsUsingLogs = monitors?.filter((m) => m.type === LOG_ALERT);
+
+  const serviceRgx = new RegExp(`("|{| |,)service:${currentName}*`, "g");
+  const serviceMonitors = monitorsUsingLogs.filter((m) =>
+    m.query.match(serviceRgx)
+  );
+
+  console.log("serviceMonitors : ", serviceMonitors);
+  return [];
+};
