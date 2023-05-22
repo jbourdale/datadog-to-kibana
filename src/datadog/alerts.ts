@@ -160,6 +160,6 @@ export const findLogServiceInMonitors = async (
     m.query.match(serviceRgx)
   );
 
-  console.log("serviceMonitors : ", serviceMonitors);
-  return [];
+  // console.log("serviceMonitors : ", serviceMonitors);
+  return serviceMonitors;
 };

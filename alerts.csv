@@ -1,0 +1,31 @@
+service, name, link
+email-sending-sendtomta, "isp attach embed threshold reached" logs counts above threshold, https://app.datadoghq.com/monitors/55340339
+email-sending-sendtomta, "isp limit threshold reached" logs counts above threshold, https://app.datadoghq.com/monitors/55340428
+email-sending-sendtomta, [crit] sendtomta service is not processing, https://app.datadoghq.com/monitors/116961288
+sendmail, Trans Preview not saved, https://app.datadoghq.com/monitors/15513019
+sendmail, Hourly quota low 1 hour, https://app.datadoghq.com/monitors/21412275
+sendmail, high incoming transactionnal traffic  {{@client_id.name}}, https://app.datadoghq.com/monitors/32887240
+sendmail, [Sendmail] API source emails have large number of empty body, https://app.datadoghq.com/monitors/40789563
+sendmail, [CORE-MTA] Heavy sending on transact emails, https://app.datadoghq.com/monitors/55555347
+sendmail, Backlog for {{@client_id.name}} ({{log.attributes.[enterprise.Name]}}), https://app.datadoghq.com/monitors/58194642
+sendmail, [QLM] QLM metric scanner script is not running properly, https://app.datadoghq.com/monitors/59043352
+sendmail, [QLM] QLM scanner is not running properly, https://app.datadoghq.com/monitors/63330995
+sendmail, [Crit-core-tran-pd] - Pc95 time_toMTA, https://app.datadoghq.com/monitors/63331824
+sendmail, [Sendmail] Time convert pc95 is high, https://app.datadoghq.com/monitors/64344398
+sendmail, [Crit-core-tran-pd] - Pc95 time_convert, https://app.datadoghq.com/monitors/69195237
+sendmail, Client with more than 20 minutes latency during 10 minutes, https://app.datadoghq.com/monitors/70043442
+sendmail, QLM Redis lists overall size is high, https://app.datadoghq.com/monitors/71416321
+sendmail, [MTA] High publish from greylisted recipient, https://app.datadoghq.com/monitors/73325013
+sendmail, At least 1 email went to backlog for Exponea ({{@client_id.name}}), https://app.datadoghq.com/monitors/81551795
+sendmail, time to mta high for doctolib, https://app.datadoghq.com/monitors/82080741
+sendmail, Doctolib time to MTA, https://app.datadoghq.com/monitors/93457727
+sendmail, no logs of sendmail stats updater, https://app.datadoghq.com/monitors/103208578
+sendmail, sendmail transarchive error rate is high, https://app.datadoghq.com/monitors/105167308
+sendmail, sendmail ovh push failed, https://app.datadoghq.com/monitors/106186933
+sendmail, Error rate hight on sendmail-personaliser, https://app.datadoghq.com/monitors/108218278
+sendmail, [STRUCK MONGOPROXY], https://app.datadoghq.com/monitors/108448738
+sendmail, sendmail too many emails rejected, https://app.datadoghq.com/monitors/111538868
+sendmail, sendmail stats clickhouse too many retries, https://app.datadoghq.com/monitors/112532727
+sendmail, sendmail too many redis body empty, https://app.datadoghq.com/monitors/112642822
+sendmail-stats-update, no logs of sendmail stats updater, https://app.datadoghq.com/monitors/103208578
+sendmail-stats-update, sendmail stats clickhouse too many retries, https://app.datadoghq.com/monitors/112532727
