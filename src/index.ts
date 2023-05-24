@@ -1,4 +1,5 @@
 import {
+  fetchMonitorsNotifyingASpecificDestination,
   fetchMonitorsUsingApmServiceWithoutTags,
   findLogServiceInMonitors,
 } from "./datadog/alerts";
@@ -53,29 +54,50 @@ const run = async () => {
     // await fetchDashboardsUsingNetwork()
   
   // let csv = ""
-  try {
-    const csv = await fetchDashboards()
-    const content = csv.join("\n")
+  // try {
+  //   const csv = await fetchDashboards()
+  //   const content = csv.join("\n")
     
-    fs.writeFile(`./dashboards.csv`, content, err => {
-      if (err) {
-        console.error(err);
-      } 
-    });
+  //   fs.writeFile(`./dashboards.csv`, content, err => {
+  //     if (err) {
+  //       console.error(err);
+  //     } 
+  //   });
   
-    const alerts = await fetchAlerts()
-    const alertcontent = alerts.join("\n")
+  //   const alerts = await fetchAlerts()
+  //   const alertcontent = alerts.join("\n")
   
-    fs.writeFile(`./dashboards.csv`, alertcontent, err => {
-      if (err) {
-        console.error(err);
-      } 
-    });
-  } catch(error) {
-    console.error(error)
-  }
+  //   fs.writeFile(`./dashboards.csv`, alertcontent, err => {
+  //     if (err) {
+  //       console.error(err);
+  //     } 
+  //   });
+  // } catch(error) {
+  //   console.error(error)
+  // }
 
-  console.log("dtk:index | Done");
+  // console.log("dtk:index | Done");
+
+  try {
+    const notificationName = "Pagerduty: Log_Platform"
+    const monitors = await fetchMonitorsNotifyingASpecificDestination(notificationName)
+
+    let csv = monitors.reduce((acc, m) => {
+      acc += `${m.name.replace(',', " ")}, https://app.datadoghq.com/monitors/${m.id}`
+      acc += '\n'
+      return acc
+    }, "name, link\n")
+
+    console.log("csv :", csv)
+
+    fs.writeFile(`./alerts_for_${notificationName.replace(" ", "_")}.csv`, csv, err => {
+      if (err) {
+        console.error(err);
+      } 
+    })
+  } catch (error) {
+    console.error("error : ", error)
+  }
 };
 
 run();

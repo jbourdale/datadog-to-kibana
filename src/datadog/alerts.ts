@@ -153,6 +153,8 @@ export const findLogServiceInMonitors = async (
   const monitors = response.data as Array<v1.Monitor>;
   console.log("dtk:datadog:alerts | Monitors count found : ", monitors.length);
 
+  console.log(monitors[0])
+
   const monitorsUsingLogs = monitors?.filter((m) => m.type === LOG_ALERT);
 
   const serviceRgx = new RegExp(`("|{| |,)service:${currentName}*`, "g");
@@ -163,3 +165,54 @@ export const findLogServiceInMonitors = async (
   // console.log("serviceMonitors : ", serviceMonitors);
   return serviceMonitors;
 };
+
+
+export const fetchMonitorsNotifyingASpecificDestination = async (searchedNotificationName: String) => {
+  
+  const monitors = await getMonitors()
+  console.log("dtk:datadog:monitors | Done");
+
+  console.log("got monitors : ", monitors.length)
+
+  const filteredMonitors = monitors.filter(m => {
+    if (m.notifications && m.notifications.length > 0) {
+      return m.notifications.some((n: {name: String, handle: String}) => {
+        return n.name == searchedNotificationName
+      })
+    }
+
+    return false
+  })
+
+  return filteredMonitors
+}
+
+const getMonitors = async (page: number = 0, per_page: number = 500) => {
+  const monitors = []
+
+  let resp = await axios.get(`https://api.datadoghq.com/api/v1/monitor/search?per_page=${per_page}&page=${page}`, {
+    headers: {
+      "Content-Type": "application/json",
+      "DD-API-KEY": process.env.DD_API_KEY || "",
+      "DD-APPLICATION-KEY": process.env.DD_APP_KEY || "",
+    },
+  });
+
+  monitors.push(...resp.data.monitors)
+
+  if (resp.data.metadata.page_count > 1) {
+    for (let i = 1; i < resp.data.metadata.page_count; i++) {
+      resp = await axios.get(`https://api.datadoghq.com/api/v1/monitor/search?per_page=${per_page}&page=${i}`, {
+        headers: {
+          "Content-Type": "application/json",
+          "DD-API-KEY": process.env.DD_API_KEY || "",
+          "DD-APPLICATION-KEY": process.env.DD_APP_KEY || "",
+        },
+      });
+
+      monitors.push(...resp.data.monitors)      
+    }
+  }
+
+  return monitors
+}

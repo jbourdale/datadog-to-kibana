@@ -1,0 +1,37 @@
+name, link
+[ Crit ] Fluentd RAMDB Process is down on {{host.name}}:{{ fluentd_port }}, https://app.datadoghq.com/monitors/3012412
+[ Crit ] Fluentd PROC Process is down on {{host.name}}:{{ fluentd_port }}, https://app.datadoghq.com/monitors/3012407
+[ Crit ] Fluentd CLIENT is down on {{host.name}}:{{ fluentd_port }}, https://app.datadoghq.com/monitors/1566725
+[Log-Platform]  {{host.name}}  | Number of non assigned shard is high, https://app.datadoghq.com/monitors/114272379
+Fluentbit forwarder are not ready on {{cluster-name.name}}, https://app.datadoghq.com/monitors/108967840
+[Crit][MTA] Fluentd Total Buffer size is above 2 GB on {{host.name}}, https://app.datadoghq.com/monitors/42404946
+[Log-Platform] CPU usage is high on {{host.name}}, https://app.datadoghq.com/monitors/113471929
+[Warn] Fluentd Total Buffer size is above 1 GB on {{host.name}}, https://app.datadoghq.com/monitors/1566782
+[ Crit ][MTA] Fluentd Total Queue size is above 2 GB on {{host.name}} {{plugin_id.name}}, https://app.datadoghq.com/monitors/42404902
+[ Crit ] Fluentd Total Queue size is above 2 GB on {{host.name}} {{plugin_id.name}}, https://app.datadoghq.com/monitors/2146892
+[SLO] High error rate on {{cluster-name.name}}, https://app.datadoghq.com/monitors/108981268
+[ Crit ][HA] Fluentd Total Queue size is above 2 GB on {{host.name}} {{plugin_id.name}}, https://app.datadoghq.com/monitors/41887560
+[ Crit ] Fluentd RED Process is down on {{host.name}}:{{ fluentd_port }}, https://app.datadoghq.com/monitors/3012408
+[Crit][HA] Fluentd Total Buffer size is above 2 GB on {{host.name}}, https://app.datadoghq.com/monitors/41887837
+[ Crit ] Fluentd MTA Process is down on {{host.name}}:{{ fluentd_port }}, https://app.datadoghq.com/monitors/3012401
+[Crit] [MTA] A fluentd docker container is not up on {{host.name}}, https://app.datadoghq.com/monitors/42404780
+[Log-Platform]  Cluster state is not healthy, https://app.datadoghq.com/monitors/114272494
+[ Crit ] Fluentd WEB Process is down on {{host.name}}:{{ fluentd_port }}, https://app.datadoghq.com/monitors/3012403
+[ Crit ] Fluentd {{cluster-name.name}} {{kube_namespace.name}}  is down on {{fluentd_port.name}}, https://app.datadoghq.com/monitors/67952425
+[Log-Platform]  |Ingress Bandwidth is high on {{host.name}}, https://app.datadoghq.com/monitors/113473929
+[ Crit ] [ offshore-smtp-log-server ] Fluentd Total Queue size is above 1 GB on {{host.name}} {{plugin_id.name}}, https://app.datadoghq.com/monitors/20189442
+[ Crit ] Fluentd CLIENT is down on {{host.name}}:{{ fluentd_port }} specific one., https://app.datadoghq.com/monitors/54127458
+[Synthetics Test] log-routing.51b.tech not accessible, https://app.datadoghq.com/monitors/109004844
+[Log-Platform] Elasticsearch is down on  {{host.name}}, https://app.datadoghq.com/monitors/113474741
+[Crit] A fluentd docker container is not up on {{host.name}}, https://app.datadoghq.com/monitors/7822510
+[Crit] [ offshore-smtp-log-server ] Fluentd Total Buffer size is above 1 GB on {{host.name}}, https://app.datadoghq.com/monitors/20189440
+[SLO] Fluentbit forwarder are not ready, https://app.datadoghq.com/monitors/108968625
+[Crit] Fluentd Total Buffer size is above 5 GB on {{host.name}}, https://app.datadoghq.com/monitors/1566785
+[Warn] Fluentd Total Queue size is above 500 MB on {{host.name}} {{plugin_id.name}}, https://app.datadoghq.com/monitors/1911817
+[Log-Platform]  |Egress Bandwidth is high on {{host.name}}, https://app.datadoghq.com/monitors/114272866
+[Log-Platform] |Load5 normalized on {{host.name}}, https://app.datadoghq.com/monitors/114272759
+[ Crit ] Fluentd HAPROXY Process is down on {{host.name}}:{{ fluentd_port }}, https://app.datadoghq.com/monitors/3012400
+[ Crit ] [ offshore-smtp-log-server ] Fluentd CLIENT is down on {{host.name}}:{{ fluentd_port }}, https://app.datadoghq.com/monitors/20189431
+[ Crit ] [MTA] Fluentd MTA Process is down on {{host.name}}:{{ fluentd_port }}, https://app.datadoghq.com/monitors/42404959
+[Log-Platform]  {{host.name}}  | Disk space on {{device.name}} is critical, https://app.datadoghq.com/monitors/114271886
+[Log-Platform]  {{host.name}}  | Number of relocating shard is pending for a long time., https://app.datadoghq.com/monitors/115404729
